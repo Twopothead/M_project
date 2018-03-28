@@ -57,6 +57,10 @@ Copyright (C) 2017 Frank Curie (邱日)
 
   - Extensions: One Dark Pro
 
+- Extensions:
+
+  - yapf :安装yapf之后在VScode中按Alt+Shift+F即可自动格式化代码
+
 
 
 # 文档
@@ -141,6 +145,171 @@ Copyright (C) 2017 Frank Curie (邱日)
     ​
 
 
+## lampp
+
+- download: https://www.apachefriends.org/zh_cn/download.html 
+
+- install:
+
+  - ```shell
+     sudo chmod 777 xampp-linux-x64-7.2.3-0-installer.run
+     sudo ./xampp-linux-x64-7.2.3-0-installer.run
+     #XAMPP will be installed to /opt/lampp
+     ```
+    ```
+
+    ```
+
+- [auto run](http://www.bubuko.com/infodetail-20974.html):
+
+  - ```shell
+    # 开机启动lampp
+    sudo ln -s /opt/lampp/lampp  /etc/init.d/lampp
+    sudo update-rc.d -f lampp defaults
+    ```
+
+- site:
+
+  - ```
+    sudo chmod 777 -R /opt/lampp/htdocs
+    cd /opt/lampp/htdocs;mkdir Docs
+    #然后可以把自己的站点放进Docs文件夹
+    ```
+
+## Keras Docs
+
+- 下载整个网站
+
+  - ```shell
+    #递归下载整个网站
+     wget -r https://keras.io
+    ```
+
+  - ​
+
+- ​
+
+## 例子学习
+
+### Keras examples
+
+#### cifar10_cnn.py
+
+- 下载cifar10py数据集
+
+- 显示隐藏文件到
+
+  - ```
+    出错信息
+    [Errno 2] No such file or directory: '/home/curie/.keras/datasets/cifar-10-batches-py/data_batch_1'
+    ```
+
+  - ```
+    cd .keras
+    解压cifar-10-python.tar.gz
+    tree
+    ```
+
+  - ![](assets/cifar10_dataset.png)
+
+- ​
+
+
+
+## 术语解释
+
+- Pooling:([池化](https://zhidao.baidu.com/question/1834646938786477900.html))
+
+  - ```
+    pooling
+    理论在于，图像中相邻位置的像素是相关的。对一幅图像每隔一行采样，得到的结果依然能看。
+    经过一层卷积以后，输入的图像尺寸变化不大，只是缩小了卷积核-1。根据相邻数据的相关性，在每个nxn区域内，一般2x2，用一个数代表原来的4个数，这样能把数据缩小4倍，同时又不会损失太多信息。
+    一副24*24的图像。用5*5卷积核卷积，结果是20*20（四周各-2），经过2*2池化，变成10*10.
+    ```
+
+## 学习资源
+
+Here are some helpful resources.
+
+- [food-101-keras](https://github.com/stratospark/food-101-keras)	  [blog address](http://blog.stratospark.com/deep-learning-applied-food-classification-deep-learning-keras.html)
+- [Keras Blog](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
+  - building powerful image classification models using very little data
+- [Keras-Tutorials](http://nbviewer.jupyter.org/github/xingkongliang/Keras-Tutorials/blob/master/01.mnist_mpl.ipynb)
+- [leaf classification](https://www.kaggle.com/c/leaf-classification/)
+- [flower dataset](https://www.kaggle.com/alxmamaev/flowers-recognition)
+  - https://www.kaggle.com/aakashnain/flowers-are-mesmerizing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 附录
+
+### [wget](https://www.linuxidc.com/Linux/2015-06/118256.htm)
+
+使用wget下载一个单独的文件.
+
+1. `# wget http://www.website-name.com/file`
+
+递归下载整个网站.
+
+1. `# wget -r http://www.website-name.com`
+
+从一个网站下载指定类型的文件(例如 pdf 和 png).
+
+1. `# wget -r -A png,pdf http://www.website-name.com`
+
+Wget是一个很棒的工具，它允许在资源有限的机器上自定义或者过滤下载。这是镜像一个网站(Yahoo.com)的wget下载截图。
+
+- ```shell
+  wget -r http://cangls.com/
+  ```
+
+  ​
+
+-------------------------------
+
+### PlantUML
+
+- VScode的一个插件,可以像是编程那样画UML图.
+
+
+
+
+## Dataset
+
+- cifar-10(python) 		[official](https://www.cs.toronto.edu/~kriz/cifar.html) 		[百度云](https://blog.csdn.net/baidu_35113561/article/details/79375701)
+  - [教程](https://zhuanlan.zhihu.com/p/29214791) 如何用Keras从头开始训练一个在CIFAR10上准确率达到89%的模型
+
+##  
+
+## 参考文献
+
+- https://www.kaggle.com/gaborfodor/keras-pretrained-models
+
+------------------------------------
+
 # 问题解决
 
 ## pip
@@ -177,6 +346,21 @@ Copyright (C) 2017 Frank Curie (邱日)
     #再删去系统中除了anaconda3之外的conda,只留这个anaconda3里面的conda
     ```
 
+## Anaconda 2 & Anaconda 3
+
+[Anaconda 2 and Anaconda 3](https://blog.csdn.net/qq_33039859/article/details/79213392) 
+
+**已经安装好Anaconda2的条件下安装Anaconda3** 
+`conda create -n py35 python=3.5 anaconda` 
+运行环境切换： 
+进入py35环境 `source activate py35` 
+退回py27环境 `source deactivate py35`
+
+**已经安装好Anaconda3的条件下安装Anaconda2** 
+`conda create -n py27 python=2.7 anaconda` 
+进入py27环境 `source activate py27` 
+退回py35环境 `source deactivate py27`
+
 
 
 ## 问题解决日志
@@ -203,3 +387,6 @@ Copyright (C) 2017 Frank Curie (邱日)
     conda update -n base conda
     conda install keras
     ```
+
+
+
